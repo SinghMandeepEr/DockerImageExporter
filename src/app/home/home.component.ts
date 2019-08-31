@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     this.exportService.export(`${image.repo}:${image.version}`);
 
   }
-  async importImage(image: Image) {
+  async importImage() {
     await this.importService.import();
     this.refresh();
 
