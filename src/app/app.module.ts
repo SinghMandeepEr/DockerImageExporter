@@ -17,6 +17,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HomeModule } from './home/home.module';
 
 import { AppComponent } from './app.component';
+import { DockerimagebrowserModule } from './dockerimagebrowser/dockerimagebrowser.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { MatButtonModule, MatDialogModule, MatProgressSpinnerModule } from '@angular/material';
+import { GlobalSpinnerComponent } from './global-spinner/global-spinner.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -24,7 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DeleteConfirmationDialogComponent, GlobalSpinnerComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -32,15 +37,21 @@ export function HttpLoaderFactory(http: HttpClient) {
     CoreModule,
     SharedModule,
     HomeModule,
+    DockerimagebrowserModule,
     AppRoutingModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule
   ],
+  entryComponents:[GlobalSpinnerComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

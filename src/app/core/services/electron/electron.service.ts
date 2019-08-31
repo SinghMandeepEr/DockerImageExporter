@@ -6,6 +6,7 @@ import { ipcRenderer, webFrame, remote } from 'electron';
 import * as childProcess from 'child_process';
 import * as fs from 'fs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,7 @@ export class ElectronService {
   webFrame: typeof webFrame;
   remote: typeof remote;
   childProcess: typeof childProcess;
+  commanLineExecutor: typeof childProcess.exec;
   fs: typeof fs;
 
   get isElectron() {
@@ -26,9 +28,9 @@ export class ElectronService {
       this.ipcRenderer = window.require('electron').ipcRenderer;
       this.webFrame = window.require('electron').webFrame;
       this.remote = window.require('electron').remote;
-
       this.childProcess = window.require('child_process');
       this.fs = window.require('fs');
+      this.commanLineExecutor = this.childProcess.exec;
     }
   }
 }
