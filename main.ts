@@ -1,10 +1,12 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, Menu, MenuItemConstructorOptions } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
 let win, serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
+
+
 
 function createWindow() {
 
@@ -21,6 +23,7 @@ function createWindow() {
       nodeIntegration: true,
     },
   });
+  win.removeMenu();
 
   if (serve) {
     require('electron-reload')(__dirname, {
@@ -48,6 +51,8 @@ function createWindow() {
   });
 
 }
+
+
 
 try {
 
