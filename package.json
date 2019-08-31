@@ -1,18 +1,14 @@
 {
-  "name": "angular-electron",
+  "name": "dockerlocalimagemangement",
   "version": "6.1.0",
   "description": "Angular 8 with Electron (Typescript + SASS + Hot Reload)",
   "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Mandeep",
+    "email": "singh.mandeep.er@gmail.com"
   },
   "keywords": [
-    "angular",
-    "angular 8",
-    "electron",
-    "typescript",
-    "sass"
+  "docker"
   ],
   "main": "main.js",
   "private": true,

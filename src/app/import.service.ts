@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ElectronService } from './core/services';
 import { GlobalSpinnerService } from './global-spinner.service';
+import { OpenDialogSyncOptions } from 'electron';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,7 @@ export class ImportService {
 
   constructor(private core: ElectronService, private spinnerservice: GlobalSpinnerService) { }
   async import() {
-    const options = {
-      // See place holder 1 in above image
+    const options: OpenDialogSyncOptions = {
       title: 'Import Docker Image',
 
       // See place holder 4 in above image

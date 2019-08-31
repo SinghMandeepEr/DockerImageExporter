@@ -15,11 +15,11 @@ export class DockerImageService {
         // console.log(data);
         const apparray = data.trim().split('\n');
         // console.log(apparray);
-        apparray.forEach(element => {
+        apparray.forEach((element, index) => {
           // console.log(element);
           const singleImageValue = element.trim().split(',');
           // console.log(singleImageValue);
-          toReturn.push(new Image(singleImageValue[0], singleImageValue[1], singleImageValue[2]));
+          toReturn.push(new Image((index + 1).toString() , singleImageValue[0], singleImageValue[1], singleImageValue[2]));
         });
         if (err) {
           reject(err);

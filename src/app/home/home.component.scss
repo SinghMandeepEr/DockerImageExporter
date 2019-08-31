@@ -1,5 +1,6 @@
 table {
   width: 100%;
+  background-color: #585757;
 }
 
 th.mat-sort-header-sorted {
@@ -7,7 +8,18 @@ th.mat-sort-header-sorted {
 }
 
 .topmenu {
-  button {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  background-color: #d3d3d3;
+  position: sticky;
+  top: 0;
+  width: 99vw;
+  button{
     margin: 5px;
   }
+  .heading{
+    margin-left: 20px;
+  }
 }
+

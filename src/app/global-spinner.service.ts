@@ -9,11 +9,10 @@ import { GlobalSpinnerComponent } from './global-spinner/global-spinner.componen
 export class GlobalSpinnerService {
 
   private dialog: MatDialogRef<GlobalSpinnerComponent>;
-  private dialogSubscription;
   constructor(private dialogRef: MatDialog) { }
   showSpinnerDialog(data: string) {
-  this.dialog = this.dialogRef.open(GlobalSpinnerComponent, {data: data});
-  this.dialog.afterClosed().subscribe(() => { });
+    this.dialog = this.dialogRef.open(GlobalSpinnerComponent, { data: data, disableClose: true });
+    this.dialog.afterClosed().subscribe(() => { });
   }
   removeSpinnerDialog() {
     this.dialog.close();

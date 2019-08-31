@@ -15,7 +15,7 @@ import { ImportService } from '../import.service';
 export class HomeComponent implements OnInit {
 
   dockerimages: Array<Image> = [];
-  displayedColumns: string[] = ['Tag', 'Repository', 'Version', 'Delete', 'Export'];
+  displayedColumns: string[] = ['Index', 'Tag', 'Repository', 'Version', 'Delete', 'Export'];
   dataSource: MatTableDataSource<Image>;
   constructor(private imageService: DockerImageService,
     private dialogRef: MatDialog,
