@@ -15,7 +15,7 @@ export class ExportService {
 
       // See place holder 4 in above image
       filters: [
-        { name: 'tgz', extensions: ['tgz'] }
+        { name: 'tar', extensions: ['tar'] }
       ]
     };
     try {
