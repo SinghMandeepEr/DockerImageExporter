@@ -8,7 +8,7 @@
     "email": "singh.mandeep.er@gmail.com"
   },
   "keywords": [
-  "docker"
+    "docker"
   ],
   "main": "main.js",
   "private": true,

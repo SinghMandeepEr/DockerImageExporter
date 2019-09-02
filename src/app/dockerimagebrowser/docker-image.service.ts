@@ -8,6 +8,17 @@ import { ElectronService } from '../core/services';
 export class DockerImageService {
 
   constructor(private core: ElectronService) { }
+  checkVersion() {
+    return new Promise<boolean>((resolve, reject) => {
+      this.core.childProcess.exec('docker version', (err, data) => {
+        if (err) {
+          reject(false);
+        }
+        resolve(true);
+      });
+    });
+
+  }
   getAllImages(): Promise<Array<Image>> {
     return new Promise<Array<Image>>((resolve, reject) => {
       const toReturn = [];

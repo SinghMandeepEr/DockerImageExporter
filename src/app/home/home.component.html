@@ -5,12 +5,12 @@
     </p>
   </div>
   <div class="globaloperation">
-    <button mat-raised-button (click)="refresh()">Refresh</button>
-    <button mat-raised-button (click)="importImage()">Import</button>
+    <button mat-raised-button *ngIf="isDockerAvailable" (click)="refresh()">Refresh</button>
+    <button mat-raised-button *ngIf="isDockerAvailable" (click)="importImage()">Import</button>
   </div>
 </div>
 
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<table mat-table *ngIf="isDockerAvailable" [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
   <!-- Position Column -->
   <ng-container matColumnDef="Index">
@@ -49,3 +49,6 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<div *ngIf="!isDockerAvailable" class="dockerunavailable">
+  Docker not available!(docker version command failed)
+</div>

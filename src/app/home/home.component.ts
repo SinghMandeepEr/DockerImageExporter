@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   dockerimages: Array<Image> = [];
   displayedColumns: string[] = ['Index', 'Tag', 'Repository', 'Version', 'Delete', 'Export'];
   dataSource: MatTableDataSource<Image>;
+  isDockerAvailable = false;
   constructor(private imageService: DockerImageService,
     private dialogRef: MatDialog,
     private spinnerService: GlobalSpinnerService,
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.isDockerAvailable = await this.imageService.checkVersion();
     this.dockerimages = await this.imageService.getAllImages();
     this.dataSource = new MatTableDataSource(this.dockerimages);
   }
